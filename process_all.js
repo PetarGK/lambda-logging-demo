@@ -6,9 +6,9 @@ const AWS     = require('aws-sdk');
 
 // CONFIGURE THESE!!!
 // ============================================
-const region = "insert_value";
-const accountId = "insert_value";
-const funcName = "insert_value";
+const region = "us-east-1";
+const accountId = "271522064567";
+const funcName = "order-system-dev-place-order";
 const retentionDays = 7;       // change this if you want
 const prefix = '/aws/lambda';  // use '/' if you want to process every log group
 // ============================================
