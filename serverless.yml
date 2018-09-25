@@ -10,7 +10,8 @@ provider:
   stage: dev
   region: us-east-1
   versionFunctions: false
-  
+  profile: petark
+
 functions:
   ship-logs-to-logzio:
     handler: functions/ship-logs/handler.handler
@@ -20,6 +21,11 @@ functions:
       logstash_host: listener.logz.io
       logstash_port: 5050
       token: ${ssm:/logz/token}
+    iamRoleStatementsName: ship-logs-role
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action: "cloudwatch:PutMetricData"
+        Resource: "*"
 
   set-retention:
     handler: functions/set-retention/handler.handler
